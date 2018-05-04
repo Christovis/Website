@@ -1,0 +1,480 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'IBM+Plex+Mono', sans-serif;
+	min-height: 100vh;
+	color: #57585c;  /* greyish */
+	color: var(--color-text);
+	background-color: white;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Color schemes */
+.demo-4 {
+	--color-text: #000000; /* #4b2cf2; Blue */
+	--color-link: #ec2525; /* Red */
+	--color-link-hover: #1074ce; /* Blue */
+	--color-enter: #ec2525;
+	--color-title: #ffffff;
+	--color-subtitle: #ffffff;
+	--color-content: #000000; /* Welcome screen bgk color */
+	--font-alt: 400 5vw/1 'Monoton', cursive;
+}
+
+/* Page Loader */
+.js .loading::before {
+	content: '';
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	3ackground: #000000;
+	/*background: var(--color-content);*/
+}
+
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 10000;
+	top: 50%;
+	left: 50%;
+	width: 50px;
+	height: 50px;
+	margin: -25px 0 0 -25px;
+	pointer-events: none;
+	/*background: #333;*/
+	background: #000000;
+	/*background: var(--color-text);*/
+	border-radius: 50%;
+	animation: loaderAnim 0.5s ease infinite alternate forwards;
+}
+
+@keyframes loaderAnim {
+	0% {
+		transform: scale3d(0.5,0.5,1);
+	}
+	100% {
+		transform: scale3d(1,1,1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: #5d93d8;
+	color: var(--color-link);
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	color: #423c2b;
+	color: var(--color-link-hover);
+	outline: none;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+/* Icons */
+.git_icon {
+	display: block;
+	width: 1.5em;
+	height: 1.5em;
+	margin: 0 auto;
+	fill: currentColor;
+}
+
+.envelope_icon {
+	display: block;
+	width: 1.5em;
+	height: 1.5em;
+	margin: 0 auto;
+	fill: currentColor;
+}
+
+.frame {
+	position: absolute;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	display: grid;
+	align-content: space-between;
+	width: 100%;
+	max-width: none;
+	height: 100vh;
+	padding: 1.5em;
+	pointer-events: none;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto auto 4em;
+	grid-template-areas: '... ...'
+	'... ...'
+	'github envelope';
+}
+
+.frame a {
+	pointer-events: auto;
+}
+
+/* Header */
+.github {
+	display: block;
+	align-self: end;
+	grid-area: github;
+	justify-self: start;
+}
+
+.envelope {
+	/*background-color: #EA745C;*/
+	position: relative;
+	display: block;
+	align-self: end;
+	grid-area: envelope;
+	justify-self: end;
+}
+
+/* Top Navigation Style */
+
+/* Page transitions */
+main {
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.content {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+}
+
+.content--dyn {
+	z-index: 100;
+	height: 200vh;
+}
+
+.content--fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: var(--color-content-fixed);
+	/*background-image: var(--bg-img); */
+	/* can't use this as relative path until it's fixed in Chrome https://bugs.chromium.org/p/chromium/issues/detail?id=618165 */
+	background-position: 50% 50%;
+	background-size: cover;
+}
+
+/*.demo-4 .content--fixed {
+	background-image: url(../img/bg4.jpg);
+}*/
+
+.content__welcome {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.content__intro {
+	width: 100%;
+	height: 45em;
+	position: relative;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.content--dyn .content__welcome {
+	/*background: var(--color-content);*/
+	background-color: #000000;
+	background-image: url(../img/bg1.png);
+	background-repeat:no-repeat;
+	background-position: center center;
+}
+
+.content h2 {
+	margin: 0;
+}
+
+.shape-wrap {
+	position: relative;
+	z-index: 10;
+	margin: -5px 0 0 0; /* Hide the gap */
+}
+
+.shape {
+	height: 100vh;
+	width: 100%;
+	display: block;
+	fill: var(--color-content);
+}
+
+.content__title {
+	font: var(--font-alt);
+	color: var(--color-title);
+	text-shadow: 0 0 5px #000000;
+	margin: 0;
+	line-height: 1;
+}
+
+.content__title--filled {
+	background: var(--color-content);
+	padding: 0.25em 0.5em;
+}
+
+.content__title span {
+	display: inline-block;
+}
+
+.content__subtitle {
+	/*font: var(--font-alt);*/
+	font-alt: 400 5vw/1, cursive;
+	font-size: 1.5em;
+	color: var(--color-subtitle);
+	text-shadow: 0 0 5px #000000;
+	padding: 0.5em 0 0 0;
+	margin: 0;
+}
+
+.enter  {    
+	margin: 5vh 0 0 0;
+	position: fixed;
+	bottom: 2vh;
+	width: 100%;
+	text-align: center;
+	font-size: 1em;
+	font-weight: bold;
+	cursor: pointer;
+	color: var(--color-enter);
+	pointer-events: auto;
+}
+
+.enter span {
+	display: inline-block;
+}
+
+.explore {
+	background: var(--color-subtitle);
+	color: var(--color-title);
+	padding: 0.5em 1em;
+}
+
+.explore:hover,
+.explore:focus {    
+	background: var(--color-text);
+}
+
+.menu {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.menu__item {
+	font: var(--font-alt);
+	font-size: 3vw;
+	color: var(--color-menu-item);
+	margin: 0 1em;
+	position: relative;
+	line-height: 1;
+}
+
+.menu__item:hover,
+.menu__item:focus {
+	color: var(--color-menu-item-hover);
+}
+
+.menu__item:nth-child(2):hover {
+	color: var(--color-menu-item-hover-alt);
+}
+
+.demo-2 .menu__item {
+	pointer-events: none;
+	padding: 3em;
+}
+
+.demo-2 .menu__item span {
+	pointer-events: auto;
+}
+
+.content__text {
+	font-size: 1.85em;
+	max-width: 800px;
+	text-align: left;
+}
+
+.content__text a {
+	color: var(--color-menu-item);
+}
+
+.content__text a:hover, 
+.content__text a:focus {
+	color: var(--color-menu-item-hover);
+}
+
+@media screen and (max-width: 50em) {
+	.frame {
+		z-index: 1000;
+		display: block;
+		padding: 0.85em 0;
+	}
+	.github {
+		display: none;
+	}
+	.envelope {
+		display: none;
+	}
+	.codrops-links {
+		margin: 0;
+	}
+	.content--dyn,
+	.content__welcome .content__intro
+	.demo-4 .content__inner {
+		padding-top: 12em;
+	}
+	.content__title {
+		font-size: 2em;
+	}
+	.demo {
+		padding: 0;
+		margin: 0;
+	}
+	.menu__item {
+		margin: 0.5em 0;
+		font-size: 1.5em;
+	}
+	.content__text {
+		padding: 1em;
+		font-size: 1em;
+	}
+	.next-demo {
+		position: relative;
+	}
+}
+
+/* Section 2: Introduction
+================================================== */
+
+/* MAIN HEADER */
+#mainhead h1          { padding-top: 50px;
+						font-weight: 200;
+                        font-size: 50pt;
+                        line-height: 100%;
+                        text-align: center;
+                        margin: 20px 0 20px;  /* Section 2 */
+                        text-transform: uppercase; }
+
+#mainhead h2          { font: normal 9pt/150% 'Garamond', 'Hoefler Text', 'Palatino', serif;
+                        text-align: center;
+                        font-variant: small-caps;
+                        text-transform: uppercase;
+                        letter-spacing: .2em; }
+
+/* MAIN Image */
+
+/*body {font: 14px/1.4 arial;}*/
+
+.mainimgDescription.monospace {}
+
+#containermain {
+    line-height: 100%;
+    width:290px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainimgWrapme {
+	background: black;
+	position: relative;
+	width: 252px;
+	height: 189px;
+	margin: 0 auto;
+	margin-left: auto;
+   	margin-right: auto;
+}
+
+.mainimgDescription {
+	position: absolute;
+	width:220px;
+	height:157px;
+	margin-left: auto;
+	margin-right: auto;
+	top: 135px;
+	left: 0;
+	right: 0;
+	border: 5px solid white;
+	color: #fff;
+	visibility: hidden;
+}
+
+.mainimgWrap:hover .mainimgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* MAIN Introduction */
+#mainintro {
+		text-align: center;
+		padding: 25px 0;
+		width: 600px;
+		margin: 0 auto;
+}
+
+/* NAVIGATIONAL LINKS */
+#mainnav{
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+#navigation li{
+	display: inline-block;
+	font-size: 15pt;
+	font-weight: 200;
+	width: 200px;
+	text-align: center; 
+}
+#navigation a{
+    display:inline-block;
+}
+
+/* CONTACT INFORMATION  padding:10px; */
+/* Effect 15: scale down, reveal */
+
+#hcard-Christoph-Becker 	{ position:absolute;
+						width:300px;
+						height:20%;
+						bottom:0px;
+						right:25%;
+						left:50%;
+						margin-left:-150px; }
+
+#hcard-Christoph-Becker .fn { font-weight: 400 }
+
+#hcard-Christoph-Becker h2  { font: normal 9pt/150% 'Garamond', 'Hoefler Text', 'Palatino', serif;
+                        font-variant: small-caps;
+                        text-transform: uppercase;
+                        letter-spacing: .2em; }
+
+#outlinks {margin-top: 40px}

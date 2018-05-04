@@ -1,0 +1,454 @@
+/* Curtain.js - Example page */
+
+/* Google Font */
+@import url(http://fonts.googleapis.com/css?family=PT+Serif|PT+Sans+Narrow:700|PT+Sans);
+
+
+/* RESET */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+/* Clearfix */
+.cf:before,
+.cf:after { content:"";display:table; }
+.cf:after { clear:both; }
+.cf { zoom:1;}
+
+/* Base Style */
+body {
+    font:14px/1.6 'PT Serif', serif;
+    font-weight: 400;
+    color:#222;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{font-family: 'PT Sans Narrow', sans-serif;font-weight:bold;text-transform: uppercase;}
+h4,h5,h6{font-family: 'PT Sans', sans-serif;font-weight:bold;}
+h4{ font-size:20px; margin:1em 0 0; }
+p{min-height:1px;}
+strong{font-weight:bold;}
+hr{background: #333;border: 0;height: 2px;margin: 12px auto 8px;width: 60px;}
+
+a{color:#1074ce;text-decoration:none;}
+a:hover{color:#0a487f;}  /* Blue */
+
+article{
+    text-align:center;
+    padding:50px 0;
+    width:250px;
+    margin:0 auto;
+}
+
+    article h4:first-child{ margin:0; }
+    article p{ text-align:justify; }
+
+.align-center{text-align: center;}
+
+
+
+/* Sliding panels */
+.curtains>li {
+    background:#FFF url(img/blizzard.png);
+    box-shadow:0 0 12px #666;
+}
+    .curtains>li:last-child{box-shadow:none}
+
+
+/*================================================
+Main Page
+==================================================*/
+
+/* Section 1
+==================================================*/
+
+#section1{
+    background:url(img/intro_1.jpg) 50% 0 no-repeat;
+    background-size:cover;
+}
+
+    #section1 header{
+        color:#FFF;
+        position:absolute;
+        top:30%;
+        left:50%;
+        margin:0 0 0 -350px;
+        width:700px;
+        text-align:center;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+        line-height:1.1;
+    }
+
+    #section1 h1{
+        font-size:120px;
+    }
+
+    #section1 h2{
+        text-transform:capitalize;
+        opacity:.75;
+        font-size:48px;
+    }
+
+/* Photo Moving */
+
+.center {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+#parallax2{position: relative;
+	left: 50%;
+}
+
+#parallax2{position: relative;
+	left: 50%;
+}
+
+#parallax3{position: relative;
+	right: -50%;
+}
+
+#parallax4{position: absolute;
+	left: 1000px;
+}
+
+#parallax5{position: absolute;
+	left: 200px;
+}
+
+#parallax6{position: absolute;
+	left: 1200px;
+}
+
+#parallax7{position: absolute;
+	left: 1600px;
+}
+
+#arrow{position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+/* Arrow */
+
+.arrow-wrap {
+  position:absolute;
+  bottom:5%;
+  left:50%;
+  bottom: 0;
+  margin:0 0 0 -5em;
+  width:10em;
+  height:10em;
+  text-align:center;
+  font-size:0.5em;
+  display:block;
+  z-index:1;
+}
+
+.arrow {
+  position:relative;
+  display: inline-block;
+  text-align:center;
+  top: 40%;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 3em 3em 0 3em;
+  border-color: #ffffff transparent transparent transparent;
+  -webkit-transform:rotate(360deg)
+}
+
+.arrow:after {
+  content:'';
+  position:absolute;
+  top:-3.2em;
+  left:-3em;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 3em 3em 0 3em;
+  border-color: #111 transparent transparent transparent;
+  -webkit-transform:rotate(360deg)
+}
+
+/* Section 2
+================================================== */
+
+/* MAIN HEADER */
+#mainhead h1          { padding-top: 100px;
+						font-weight: 200;
+                        font-size: 50pt;
+                        line-height: 100%;
+                        text-align: center;
+                        margin: 20px 0 20px;  /* Section 2 */
+                        text-transform: uppercase; }
+
+#mainhead h2          { font: normal 9pt/150% 'Garamond', 'Hoefler Text', 'Palatino', serif;
+                        text-align: center;
+                        font-variant: small-caps;
+                        text-transform: uppercase;
+                        letter-spacing: .2em; }
+
+/* MAIN Image */
+
+body {font: 14px/1.4 arial;}
+
+.mainimgDescription.monospace {}
+
+#containermain {
+    line-height: 100%;
+    width:290px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainimgWrapme {
+	background: black;
+	position:relative;
+	width:252px;
+	height:189px;
+	margin: 0 auto;
+	margin-left: auto;
+   	margin-right: auto;
+}
+
+.mainimgDescription {
+	position: absolute;
+	width:220px;
+	height:157px;
+	margin-left: auto;
+	margin-right: auto;
+	top: 135px;
+	left: 0;
+	right: 0;
+	border: 5px solid white;
+	color: #fff;
+	visibility: hidden;
+}
+
+.mainimgWrap:hover .mainimgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* MAIN Introduction */
+#mainintro     {text-align:center;
+		padding:25px 0;
+		width:600px;
+		margin:0 auto;
+}
+
+/* NAVIGATIONAL LINKS */
+#mainnav{
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+#navigation li{
+	display: inline-block;
+	font-size: 15pt;
+	font-weight: 200;
+	width: 200px;
+	text-align: center; 
+}
+#navigation a{
+    display:inline-block;
+}
+
+/* CONTACT INFORMATION  padding:10px; */
+
+/*#hcard-Christoph-Becker     { clear: both;
+                        padding: 35px 0;
+                        text-align: center;
+						bottom: 0; }
+*/
+#hcard-Christoph-Becker 	{ position:absolute;
+						width:300px;
+						height:20%;
+						bottom:0px;
+						right:25%;
+						left:50%;
+						margin-left:-150px; }
+
+#hcard-Christoph-Becker .fn { font-weight: 400 }
+
+#hcard-Christoph-Becker h2  { font: normal 9pt/150% 'Garamond', 'Hoefler Text', 'Palatino', serif;
+                        font-variant: small-caps;
+                        text-transform: uppercase;
+                        letter-spacing: .2em; }
+
+#outlinks {margin-top: 40px}
+
+/* Weblink to Github, Twitter, etc. */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%; }
+						
+/*================================================
+Projects
+==================================================*/
+
+#projects      {width:  800px;
+                margin: 50px auto;
+                height: 400px;}
+
+#projectsdiv   {display: inline-block;
+                width: 350px;
+                height: 390px;
+                float: left;
+                padding: 5px 25px 150px 25px; }
+                        
+#projectsdiv	h1    {font-size: 20pt;
+                       font-weight: 100;
+                       text-align: center; }
+
+#GUSSTO_Project {text-align: center;}
+
+.imgWrapproj.square {}
+.projimgDescriptionright.monospace {}
+.projimgDescriptionleft.monospace {}
+
+.imgWrapproj {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle; 
+}
+
+.projimgDescriptionright {
+	position: absolute;
+	top: 0;
+	bottom: -10px;
+	left: 0;
+	right: -200px;
+	background-color: #fff;
+	color: #000;
+	visibility: hidden;
+	opacity: 1;
+}
+
+.projimgDescriptionleft {
+	position: absolute;
+	top: 0;
+	bottom: -10px;
+	left: -200px;
+	right: 0;
+	background-color: #fff;
+	color: #000;
+	visibility: hidden;
+	opacity: 1;
+}
+
+.imgWrapproj:hover .projimgDescriptionright {
+  visibility: visible;
+}
+
+.imgWrapproj:hover .projimgDescriptionleft {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*================================================
+Personal
+==================================================*/
+
+/* MAIN Introduction */
+#personal     {text-align:center;
+		padding:25px 0;
+		width:550px;
+		margin:0 auto;
+}
+
+#container {
+    line-height: 100%;
+    text-align: center;
+    width:100%; 
+    height:100%;
+}
+.square{        
+    padding-bottom: 49%; 
+    height: 0;
+    width: 49%;
+    float:left; 
+    display:block;
+}
+
+.persimgWrap {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle; 
+}
+
+.persimgDescription {
+	position: absolute;
+	top: 0;
+	bottom: -50px;
+	left: 0;
+	right: -5px;
+	padding: 10px;
+	text-align: left;
+	background-color: #fff;
+	color: #000;
+	visibility: hidden;
+	opacity: 1;
+}
+
+.persimgWrap:hover .persimgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*================================================
+Math Puzzles
+==================================================*/
+
+#tableContainer-1 {
+    padding-top: 100px;
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+#tableContainer-2 {
+    vertical-align: middle;
+    display: table-cell;
+    height: 100%;
+}
+
+#myTable {
+    margin: 0 auto;
+}
+
+table {
+    width: 80%;
+}
+td, th {
+    text-align: left;
+    padding: 4px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 500px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
